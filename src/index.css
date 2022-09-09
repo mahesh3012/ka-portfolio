@@ -1,13 +1,185 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+*{
+  scroll-behavior: smooth;
+}
+a{
+  text-decoration: none;
+}
+.cursive{
+  font-family:"Pacifico", cursive;
+  font-weight: 300;
+  font-size:30px;
+}
+.funky{
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  text-align: center;
+  font-size: 300%;
+}
+.prose img{
+  margin-left: auto;
+  margin-right:auto;
+  border-radius:5px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.home-name{
+  font-size: 150px;
+}
+
+#navbar{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  max-height: 100px;
+}
+
+#hamburgerIcon{
+  display: none;
+}
+#hamburgerMenu{
+  display: flex;
+}
+#homeMain{
+  overflow: hidden;
+  background-color: #000;
+  max-height: 100vh;
+}
+#homeImage{
+  overflow: hidden;
+  opacity: 70%;
+  object-fit: cover;
+}
+
+#mainText{
+  position: absolute;
+  width:100%;
+  top:25vw;
+  font-family: 'Caveat', cursive;;
+  font-size: 4vw;
+  color: rgb(255, 247, 0);
+  text-align: center;
+  text-transform: uppercase;
+  animation: 1s ease-out 1s 1 slideUp;
+}
+
+#about{
+  font-family: 'Patrick Hand', cursive;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  padding-top: 80px;
+}
+h1{
+  font-family: 'Patrick Hand', cursive;
+  font-size: max(5vw,30px);
+  text-align: center;
+}
+#about p{
+  justify-self: center;
+  width: 75vw;
+  font-size: max(2vw,20px);
+  text-align: center;
+}
+#about img{
+  width: 20%;
+}
+.container{
+  position: relative;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: black;
+}
+
+.container:hover .overlay {
+  opacity:0.5;
+}
+
+.playIcon{
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+#originals{
+  background-color: #7bc6a3;
+}
+
+@keyframes slideUp {
+  0%{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+}
+
+@media all and (max-width:1100px) {
+  .cursive{
+    font-size:20px;
+  }
+  #navbar{
+    height: 80px;
+  }
+  #hamburgerMenu{
+    display: none;
+    width: 40%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    overflow-x: hidden;
+    background-color: #323845;
+    opacity: 0.9;
+    border:2px solid #000;
+  }
+  #navigationMenu{
+    border-bottom: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: max(5vw,25px);
+  }
+  #socialMenu{
+    font-size: 4vw;
+    width: 100%;
+    justify-content: center;
+    margin-right: 0;
+  }
+  #hamburgerIcon{
+    display: block;
+    font-size: 30px;
+    position: fixed;
+    right: 0;
+    margin:25px;
+  }
+  #socialMenu svg{
+    width:6vw;
+    height: auto;
+  }
 }
